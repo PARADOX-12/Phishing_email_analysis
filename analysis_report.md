@@ -111,5 +111,5 @@ This sample effectively demonstrates:
 - Header analysis techniques
 - Threat detection methodologies
 
----
-*Analysis completed as part of Elevate Labs Cybersecurity Internship Task 2*
+
+

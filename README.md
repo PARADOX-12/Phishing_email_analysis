@@ -1,96 +1,94 @@
-# Phishing Email Analysis - Cybersecurity Internship Task 2
+# Task 2: Phishing Email Analysis
 
-## 📋 Project Overview
-This repository contains my analysis of a phishing email sample for the Elevate Labs Cybersecurity Internship Task 2. The objective is to identify and document phishing characteristics in a suspicious email sample.
+## Overview
 
-## 🎯 Task Objectives
-- Identify phishing characteristics in suspicious email samples
-- Analyze email headers for authentication failures
-- Document social engineering tactics used
-- Demonstrate email threat analysis skills
-
-## 📁 Repository Contents
-
-### Files
-- `phishing_sample.eml` - Sample phishing email for analysis
-- `analysis_report.md` - Detailed technical analysis and findings
-- `README.md` - This overview document
-- `interview_prep.md` - Answers to common phishing-related interview questions
-
-### Sample Email Details
-- **Type:** Voice message phishing scam
-- **Target:** Internal company communication impersonation
-- **Risk Level:** HIGH (Critical authentication failures)
-
-## 🔍 Key Findings Summary
-
-| Finding | Risk Level | Description |
-|---------|------------|-------------|
-| SPF Authentication Failure | CRITICAL | Sender IP not authorized by domain |
-| Missing DKIM Signature | HIGH | No digital signature verification |
-| DMARC Policy Violation | HIGH | Failed domain authentication |
-| Suspicious Attachment | HIGH | Malicious file download attempt |
-| Social Engineering | MEDIUM | Urgency tactics and impersonation |
-
-## 🛠 Tools and Methods Used
-
-### Analysis Tools
-- **MXToolbox Email Header Analyzer** - Header authentication analysis
-- **Mailmodo Header Analyzer** - SPF/DKIM/DMARC verification
-- **Manual Analysis** - Content and social engineering review
-
-### Methodology
-1. Email header extraction and analysis
-2. Authentication protocol verification (SPF, DKIM, DMARC)
-3. Content analysis for social engineering indicators
-4. Risk assessment and documentation
-
-## 📊 Analysis Results
-
-### Authentication Failures
-- ❌ **SPF:** FAIL - Unauthorized sending IP (192.0.2.1)
-- ❌ **DKIM:** NONE - Missing digital signature
-- ❌ **DMARC:** FAIL - Policy violation detected
-
-### Phishing Indicators
-- ✅ Sender domain spoofing
-- ✅ Suspicious attachment request
-- ✅ Urgent/threatening language
-- ✅ Grammar and spelling errors
-- ✅ Generic impersonal content
-
-## 🎓 Skills Demonstrated
-- Email security analysis
-- Header authentication interpretation
-- Threat detection and assessment
-- Social engineering recognition
-- Technical documentation
-- Cybersecurity best practices
-
-## 🔗 Educational Resources
-- [NIST Cybersecurity Framework](https://www.nist.gov/cyberframework)
-- [Email Authentication Best Practices](https://www.rfc-editor.org/rfc/rfc7489.html)
-- [Phishing Attack Prevention Guidelines](https://www.cisa.gov/news-events/news/avoiding-social-engineering-and-phishing-attacks)
-
-## 📝 Interview Preparation
-See `interview_prep.md` for detailed answers to common phishing-related interview questions covering:
-- Phishing definition and types
-- Detection techniques
-- Email spoofing mechanics
-- Security best practices
-
-## 🚀 Next Steps
-- Advanced malware analysis training
-- Email security implementation
-- Incident response procedures
-- Security awareness program development
-
-## 👨‍💻 Author
-**Cybersecurity Intern** - Elevate Labs Program  
-*Completed as part of Task 2: Phishing Email Analysis*
-
-## 📄 License
-This project is for educational purposes as part of cybersecurity training.
+This project documents the analysis of a real-world phishing email sample, including header authentication, identification of phishing indicators, and explanation of the attack’s tactics. Screenshots are included as evidence of both the phishing email and its associated fake login page for thoroughness and realism.
 
 ---
-*"Understanding the enemy is the first step in building effective defenses."*
+
+## Files Included
+
+- `phishing_sample.eml` — Raw phishing email sample (with full headers)
+- `analysis_report.md` — Detailed analysis (see summary below)
+- `phishing_indicators_checklist.md` — Quick reference guide to phishing red flags
+- `screenshots/` — Contains all graphical evidence used in this analysis:
+  - `image2.jpg`: Screenshot of the phishing email
+  - `image.jpg`: Example of the fake Outlook login interface
+
+---
+
+## Analysis Summary
+
+### Sample Details
+
+- **From:** noreply@target.example.com (spoofed sender)
+- **Subject:** target.example.com :- (Voice Message-Access for Clients.Pass-Key-Exception)
+- **Date:** Fri, 04 Mar 2022
+- **Attachment:** HTML file requesting download to access a voice message
+
+### Key Phishing Indicators
+
+| Indicator               | Finding / Example                                      | Risk Level |
+|-------------------------|--------------------------------------------------------|------------|
+| Sender Spoofing         | Uses target company’s domain but fails SPF check       | High       |
+| Authentication Failure  | SPF=fail, DKIM=none, DMARC=fail in the headers        | High       |
+| Suspicious Attachment   | Contains malicious HTML file as voice message          | High       |
+| Urgent Language         | “Attention”, requests immediate download action        | Medium     |
+| Grammar Errors          | “Vmail Recieved” (typo) and formatting issues          | Medium     |
+| Generic Content         | Lacks personalization, generic notification style      | Medium     |
+
+---
+
+## Header Authentication Findings
+
+- **SPF:** FAIL (domain not authorized to send from this IP)
+- **DKIM:** NONE (no digital signature)
+- **DMARC:** FAIL (does not align with sender policy)
+- **Sender IP:** Not belonging to the claimed domain
+
+---
+
+## Screenshots
+
+### Phishing Email Example
+
+![Phishing Email Screenshot](./screenshots/image.png) 
+*Demonstrates a typical phishing message requesting the user to download an attachment to hear a voice message, impersonating Office 365 and using urgency tactics.*
+
+### Fake Login Page
+
+![Fake Login Screenshot](./screenshots/image2.jpeg) 
+*Shows a fake Outlook credential prompt. Users are tricked into entering real credentials, which attackers then harvest.*
+
+---
+
+## Process & Tools Used
+
+- **Email collection:** Downloaded sanitized phishing sample from a reputable GitHub repository
+- **Header analysis:** Mailmodo and MXToolbox Header Analyzers
+- **Content review:** Manual cross-check for phishing traits (spoofing, urgencies, branding)
+- **Screenshot evidence:** Visual documentation of email and associated phishing site
+
+---
+
+## Key Findings
+
+- All critical email authentication failed, indicating a spoofing/phishing attempt.
+- The attacker used urgency and impersonation to trick the recipient.
+- Suspicious HTML attachment aimed to capture user credentials.
+- Well-crafted visual branding and login page increase realism and attack effectiveness.
+
+---
+
+## Submission Structure
+
+1. All project files and screenshots are uploaded in this repository.
+2. Analysis report and quick-reference checklist are provided for clarity.
+3. Screenshots visually demonstrate phishing tactics and end-user impacts.
+
+---
+
+## Conclusion
+
+This analysis highlights the importance of technical and content-based scrutiny when reviewing suspicious emails. By identifying sender spoofing, authentication failures, and social engineering cues (supported by screenshots), this report demonstrates practical phishing defense skills according to industry expectations.
+

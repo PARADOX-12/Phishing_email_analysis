@@ -52,5 +52,4 @@
 | Social Engineering | MEDIUM | User education |
 | Grammar Errors | LOW | Additional verification |
 
----
-*Quick reference for cybersecurity professionals*
+
